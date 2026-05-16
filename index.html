@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Band Name - Best Wedding & Event Band</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --dark: #0a0a0a;
+    --dark-mid: #141414;
+    --dark-card: #1a1a1a;
+    --text: #f0ece4;
+    --text-muted: #a09880;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links > li {
+    position: relative;
+  }
+
+  .nav-links > li > a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links > li > a:hover { color: var(--gold); }
+
+  .nav-links > li:hover .dropdown { display: block; }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(15,15,15,0.97);
+    border: 1px solid rgba(201,168,76,0.2);
+    min-width: 200px;
+    padding: 0.5rem 0;
+  }
+
+  .dropdown a {
+    display: block;
+    padding: 0.5rem 1.2rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .dropdown a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--dark) !important;
+    padding: 0.55rem 1.4rem !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--dark) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 8rem 2rem 4rem;
+    background:
+      linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.3) 40%, rgba(10,10,10,0.7) 100%),
+      url('https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/82781060-ae44-4526-bd3c-dda86cf1a359/atomic-funk-project-best-nyc-wedding-event-dance-party-band-background-awards.jpg') center/cover no-repeat;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    max-width: 560px;
+    font-size: 1.05rem;
+    color: rgba(240,236,228,0.8);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    transition: background 0.25s, color 0.25s;
+  }
+  .btn:hover { background: var(--gold); color: var(--dark); }
+  .btn-filled { background: var(--gold); color: var(--dark); }
+  .btn-filled:hover { background: var(--gold-light); color: var(--dark); }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 6rem 2rem; }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 em { font-style: italic; color: var(--gold); }
+
+  p { color: rgba(240,236,228,0.75); margin-bottom: 1rem; }
+
+  /* ─── ABOUT / INTRO ─── */
+  .about {
+    background: var(--dark-mid);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-img {
+    aspect-ratio: 4/5;
+    background:
+      linear-gradient(135deg, rgba(201,168,76,0.1), transparent),
+      url('https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/e803d4ef-41a9-4373-9559-50e8dd3409ca/atomic-funk-project-best-nyc-wedding-event-dance-party-band-background-live-shows.jpg') center/cover no-repeat;
+    position: relative;
+  }
+
+  .about-img::after {
+    content: '';
+    position: absolute;
+    inset: -12px -12px 12px 12px;
+    border: 1px solid rgba(201,168,76,0.3);
+    z-index: -1;
+  }
+
+  /* ─── AWARDS ─── */
+  .awards { background: var(--dark); text-align: center; }
+
+  .awards-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+
+  .award-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .award-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-align: center;
+    letter-spacing: 0.05em;
+    padding: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .award-year {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  /* ─── TESTIMONIAL ─── */
+  .testimonial-section {
+    background: var(--dark-mid);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial-card {
+    background: var(--dark-card);
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 2rem;
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '\201C';
+    font-family: var(--font-display);
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.25;
+    position: absolute;
+    top: -0.5rem;
+    left: 1.2rem;
+    line-height: 1;
+  }
+
+  .testimonial-text {
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    color: rgba(240,236,228,0.85);
+  }
+
+  .testimonial-author {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ─── SERVICES ─── */
+  .services { background: var(--dark); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.1);
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: var(--dark);
+    padding: 2rem 1.8rem;
+    transition: background 0.3s;
+  }
+  .service-card:hover { background: var(--dark-card); }
+
+  .service-num {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .service-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ─── PHOTO STRIP ─── */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+
+  .photo-strip-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .photo-strip-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.3s;
+    filter: grayscale(20%);
+  }
+  .photo-strip-item:hover img { transform: scale(1.06); filter: grayscale(0%); }
+
+  /* ─── LIVE SHOWS ─── */
+  .shows {
+    background:
+      linear-gradient(to bottom, rgba(10,10,10,0.8), rgba(10,10,10,0.6)),
+      url('https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/e803d4ef-41a9-4373-9559-50e8dd3409ca/atomic-funk-project-best-nyc-wedding-event-dance-party-band-background-live-shows.jpg') center/cover fixed no-repeat;
+    text-align: center;
+  }
+
+  /* ─── CONTACT / CTA ─── */
+  .cta {
+    background:
+      linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.85)),
+      url('https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/81687392-4c7f-4b76-9eda-5048761c9653/atomic-funk-project-best-nyc-wedding-event-dance-party-band-background-inquire-now.jpg') center/cover no-repeat;
+    text-align: center;
+    padding: 8rem 2rem;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #050505;
+    padding: 4rem 2rem 2rem;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+  }
+
+  .footer-brand p { font-size: 0.85rem; margin-top: 1rem; max-width: 280px; }
+
+  .footer-col h4 {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.83rem;
+    padding: 0.25rem 0;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--text); }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .social-links { display: flex; gap: 1.2rem; }
+  .social-links a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; transition: color 0.2s; }
+  .social-links a:hover { color: var(--gold); }
+
+  /* ─── DIVIDER ─── */
+  .gold-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.5rem auto;
+  }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .photo-strip { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    .awards-row { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Your Band Name</a>
+  <ul class="nav-links">
+    <li>
+      <a href="#">The Band ▾</a>
+      <div class="dropdown">
+        <a href="#">Instagram</a>
+        <a href="#">Live Videos</a>
+        <a href="#">Live Performances</a>
+        <a href="#">Venues Played</a>
+      </div>
+    </li>
+    <li>
+      <a href="#">Services ▾</a>
+      <div class="dropdown">
+        <a href="#">Wedding Receptions</a>
+        <a href="#">Private Events</a>
+        <a href="#">Corporate Events</a>
+        <a href="#">Themed Shows</a>
+        <a href="#">Ceremony Music</a>
+        <a href="#">Cocktail Music</a>
+        <a href="#">DJ After-Parties</a>
+      </div>
+    </li>
+    <li>
+      <a href="#">Songs ▾</a>
+      <div class="dropdown">
+        <a href="#">Wedding Reception Songs</a>
+        <a href="#">Dance Party Songs</a>
+        <a href="#">First Dance Songs</a>
+        <a href="#">Parent Dance Songs</a>
+        <a href="#">Ceremony Songs</a>
+        <a href="#">Cocktail Songs</a>
+      </div>
+    </li>
+    <li>
+      <a href="#">Reviews ▾</a>
+      <div class="dropdown">
+        <a href="#">Google Reviews</a>
+        <a href="#">The Knot Reviews</a>
+        <a href="#">WeddingWire Reviews</a>
+      </div>
+    </li>
+    <li><a href="#contact" class="nav-cta">Inquire Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-eyebrow">NYC's Premier Wedding & Event Band</span>
+  <h1>Let's <em>Dance</em></h1>
+  <p class="hero-sub">
+    High-energy dance parties and world-class live music for weddings, corporate events &amp; more. No lip-synching, no backing tracks — just unforgettable nights.
+  </p>
+  <a href="#contact" class="btn btn-filled">Inquire Now</a>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img"></div>
+      <div>
+        <span class="section-label">About Us</span>
+        <h2>World-Class Musicians. <em>Unforgettable</em> Nights.</h2>
+        <p>
+          We are the best wedding &amp; event band in NYC. We throw high-energy dance parties and provide the finest live music for weddings, corporate events &amp; more.
+        </p>
+        <p>
+          We create magical live music experiences that will keep your guests on the dance floor all night long. No lip-synching, no backing tracks, no gimmicks — just world-class musicians throwing a personalized dance party.
+        </p>
+        <p style="margin-bottom: 2rem;">We primarily serve the tri-state/greater NYC region but will travel anywhere.</p>
+        <a href="#services" class="btn">Our Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards">
+  <div class="container">
+    <span class="section-label">Recognition</span>
+    <h2>Award-<em>Winning</em> Excellence</h2>
+    <div class="gold-divider"></div>
+    <p style="max-width: 520px; margin: 0 auto; text-align: center;">
+      Winners of The Knot Best of Weddings and WeddingWire Couples' Choice Awards every year since 2016 — recognizing the top 5% of wedding vendors nationwide.
+    </p>
+    <div class="awards-row">
+      <div class="award-badge">
+        <div class="award-icon">The Knot<br>Hall of<br>Fame</div>
+        <span class="award-year">Hall of Fame</span>
+      </div>
+      <div class="award-badge">
+        <div class="award-icon">The Knot<br>Best of<br>Weddings</div>
+        <span class="award-year">2026</span>
+      </div>
+      <div class="award-badge">
+        <div class="award-icon">WeddingWire<br>Couples'<br>Choice</div>
+        <span class="award-year">2026</span>
+      </div>
+      <div class="award-badge">
+        <div class="award-icon">The Knot<br>Best of<br>Weddings</div>
+        <span class="award-year">2025</span>
+      </div>
+      <div class="award-badge">
+        <div class="award-icon">WeddingWire<br>Couples'<br>Choice</div>
+        <span class="award-year">2025</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-section">
+  <div class="container">
+    <span class="section-label">Testimonials</span>
+    <h2>What Our <em>Clients</em> Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          Aside from actually getting married, one of the main goals of our wedding was to have a packed dance floor the entire evening. They delivered! The artists were so talented and personable.
+        </p>
+        <span class="testimonial-author">— Maria</span>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          We were nervous about a live band, but the musicians that came for our event were by far the best wedding band we've ever experienced. Many of our guests said the same.
+        </p>
+        <span class="testimonial-author">— Daryl</span>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          As a musician, I was nervous about hiring a wedding band that would be too "canned." They were the total opposite — the musicians played with complete care and devotion.
+        </p>
+        <span class="testimonial-author">— Allison</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <span class="section-label">What We Offer</span>
+    <h2>Our <em>Services</em></h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <p class="service-name">Wedding Receptions</p>
+        <p class="service-desc">Full evening of live music that keeps your guests dancing from first dance to last call.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <p class="service-name">Private Events</p>
+        <p class="service-desc">Tailored performances for private parties, milestone celebrations, and exclusive gatherings.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <p class="service-name">Corporate Events</p>
+        <p class="service-desc">Elevate company events with premium live entertainment that impresses every guest.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <p class="service-name">Themed Shows</p>
+        <p class="service-desc">Custom-curated set lists around a specific era, genre, or theme for a unique experience.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">05</span>
+        <p class="service-name">Ceremony Music</p>
+        <p class="service-desc">Beautiful live music for processionals, recessionals, and everything in between.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">06</span>
+        <p class="service-name">Cocktail Hour</p>
+        <p class="service-desc">Sophisticated background music that sets the mood while guests mingle and celebrate.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">07</span>
+        <p class="service-name">DJ After-Parties</p>
+        <p class="service-desc">Seamlessly extend the night with a DJ set after the live performance wraps up.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">08</span>
+        <p class="service-name">Rehearsal Dinners</p>
+        <p class="service-desc">Start the wedding weekend right with intimate live music at your rehearsal dinner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO STRIP / INSTAGRAM -->
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/1778875294757-H8QX842NRIYIS2GV8RJM/image-asset.jpeg" alt="Live performance photo" loading="lazy">
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/1778612948724-6LPMN5576GRH4RSA2MJB/image-asset.jpeg" alt="Live performance photo" loading="lazy">
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/1778279272583-EGA9FFCXSROHI50VC9WS/image-asset.jpeg" alt="Live performance photo" loading="lazy">
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/1778030655254-9VR8MTZE696MTIZXX2QJ/image-asset.jpeg" alt="Live performance photo" loading="lazy">
+  </div>
+</div>
+
+<!-- LIVE SHOWS -->
+<section class="shows">
+  <div class="container" style="max-width:600px; text-align:center;">
+    <span class="section-label">On Stage</span>
+    <h2>Live <em>Shows</em></h2>
+    <div class="gold-divider"></div>
+    <p>See us perform live. Track upcoming performances and get notified when we're playing near you.</p>
+    <br>
+    <a href="#" class="btn">Get Notified</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <span class="section-label">Get In Touch</span>
+  <h2 style="font-family: var(--font-display); font-size: clamp(2.2rem,5vw,3.5rem);">Ready to <em>Party</em>?</h2>
+  <div class="gold-divider"></div>
+  <p style="max-width: 480px; margin: 0 auto 2.5rem; text-align:center; color: rgba(240,236,228,0.8);">
+    Tell us about your event and let's start planning the night your guests will never forget.
+  </p>
+  <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+    <a href="mailto:hello@yourband.com" class="btn btn-filled">Inquire Now</a>
+    <a href="#" class="btn">Book a Consultation</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="font-size:1.2rem;">Your Band Name</a>
+      <p>The best wedding &amp; event band in NYC. Serving NY, NJ, CT &amp; beyond. We throw unforgettable live music experiences.</p>
+      <div class="social-links" style="margin-top:1.2rem;">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>The Band</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Live Videos</a>
+      <a href="#">Live Performances</a>
+      <a href="#">Venues Played</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Wedding Receptions</a>
+      <a href="#">Private Events</a>
+      <a href="#">Corporate Events</a>
+      <a href="#">Themed Shows</a>
+      <a href="#">Ceremony Music</a>
+      <a href="#">Cocktail Music</a>
+      <a href="#">DJ After-Parties</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="#">Inquire Now</a>
+      <a href="#">Book Consultation</a>
+      <a href="#">Guest List</a>
+      <a href="#">Careers</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Your Band Name. All rights reserved.</span>
+    <span>Serving NYC, NJ, CT &amp; beyond</span>
+  </div>
+</footer>
+
+</body>
+</html>

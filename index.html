@@ -3,487 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Band Name - Best Wedding & Event Band</title>
+<title>The Soul Jam - Best Wedding & Event Band</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --dark: #0a0a0a;
-    --dark-mid: #141414;
-    --dark-card: #1a1a1a;
-    --text: #f0ece4;
-    --text-muted: #a09880;
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Jost', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--dark);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 3rem;
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-    transition: background 0.3s;
-  }
-
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    letter-spacing: 0.08em;
-    color: var(--gold);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 0;
-    list-style: none;
-    align-items: center;
-  }
-
-  .nav-links > li {
-    position: relative;
-  }
-
-  .nav-links > li > a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
-  .nav-links > li > a:hover { color: var(--gold); }
-
-  .nav-links > li:hover .dropdown { display: block; }
-
-  .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: rgba(15,15,15,0.97);
-    border: 1px solid rgba(201,168,76,0.2);
-    min-width: 200px;
-    padding: 0.5rem 0;
-  }
-
-  .dropdown a {
-    display: block;
-    padding: 0.5rem 1.2rem;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .dropdown a:hover { color: var(--gold); }
-
-  .nav-cta {
-    background: var(--gold);
-    color: var(--dark) !important;
-    padding: 0.55rem 1.4rem !important;
-    font-weight: 600 !important;
-    transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--gold-light) !important; color: var(--dark) !important; }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    padding: 8rem 2rem 4rem;
-    background:
-      linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.3) 40%, rgba(10,10,10,0.7) 100%),
-      url('https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/82781060-ae44-4526-bd3c-dda86cf1a359/atomic-funk-project-best-nyc-wedding-event-dance-party-band-background-awards.jpg') center/cover no-repeat;
-  }
-
-  .hero-eyebrow {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 6.5rem);
-    font-weight: 700;
-    line-height: 1.05;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-sub {
-    max-width: 560px;
-    font-size: 1.05rem;
-    color: rgba(240,236,228,0.8);
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 0.9rem 2.5rem;
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    transition: background 0.25s, color 0.25s;
-  }
-  .btn:hover { background: var(--gold); color: var(--dark); }
-  .btn-filled { background: var(--gold); color: var(--dark); }
-  .btn-filled:hover { background: var(--gold-light); color: var(--dark); }
-
-  /* ─── SECTION BASE ─── */
-  section { padding: 6rem 2rem; }
-
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  h2 {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
-  }
-
-  h2 em { font-style: italic; color: var(--gold); }
-
-  p { color: rgba(240,236,228,0.75); margin-bottom: 1rem; }
-
-  /* ─── ABOUT / INTRO ─── */
-  .about {
-    background: var(--dark-mid);
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about-img {
-    aspect-ratio: 4/5;
-    background:
-      linear-gradient(135deg, rgba(201,168,76,0.1), transparent),
-      url('https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/e803d4ef-41a9-4373-9559-50e8dd3409ca/atomic-funk-project-best-nyc-wedding-event-dance-party-band-background-live-shows.jpg') center/cover no-repeat;
-    position: relative;
-  }
-
-  .about-img::after {
-    content: '';
-    position: absolute;
-    inset: -12px -12px 12px 12px;
-    border: 1px solid rgba(201,168,76,0.3);
-    z-index: -1;
-  }
-
-  /* ─── AWARDS ─── */
-  .awards { background: var(--dark); text-align: center; }
-
-  .awards-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    margin-top: 3rem;
-  }
-
-  .award-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .award-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: var(--gold);
-    text-align: center;
-    letter-spacing: 0.05em;
-    padding: 0.5rem;
-    line-height: 1.3;
-  }
-
-  .award-year {
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    color: var(--text-muted);
-    text-transform: uppercase;
-  }
-
-  /* ─── TESTIMONIAL ─── */
-  .testimonial-section {
-    background: var(--dark-mid);
-  }
-
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-
-  .testimonial-card {
-    background: var(--dark-card);
-    border: 1px solid rgba(201,168,76,0.12);
-    padding: 2rem;
-    position: relative;
-  }
-
-  .testimonial-card::before {
-    content: '\201C';
-    font-family: var(--font-display);
-    font-size: 5rem;
-    color: var(--gold);
-    opacity: 0.25;
-    position: absolute;
-    top: -0.5rem;
-    left: 1.2rem;
-    line-height: 1;
-  }
-
-  .testimonial-text {
-    font-style: italic;
-    font-size: 0.95rem;
-    line-height: 1.8;
-    margin-bottom: 1.2rem;
-    color: rgba(240,236,228,0.85);
-  }
-
-  .testimonial-author {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  /* ─── SERVICES ─── */
-  .services { background: var(--dark); }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1px;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.1);
-    margin-top: 3rem;
-  }
-
-  .service-card {
-    background: var(--dark);
-    padding: 2rem 1.8rem;
-    transition: background 0.3s;
-  }
-  .service-card:hover { background: var(--dark-card); }
-
-  .service-num {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .service-name {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-  }
-
-  .service-desc {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* ─── PHOTO STRIP ─── */
-  .photo-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-  }
-
-  .photo-strip-item {
-    aspect-ratio: 1;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .photo-strip-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease, filter 0.3s;
-    filter: grayscale(20%);
-  }
-  .photo-strip-item:hover img { transform: scale(1.06); filter: grayscale(0%); }
-
-  /* ─── LIVE SHOWS ─── */
-  .shows {
-    background:
-      linear-gradient(to bottom, rgba(10,10,10,0.8), rgba(10,10,10,0.6)),
-      url('https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/e803d4ef-41a9-4373-9559-50e8dd3409ca/atomic-funk-project-best-nyc-wedding-event-dance-party-band-background-live-shows.jpg') center/cover fixed no-repeat;
-    text-align: center;
-  }
-
-  /* ─── CONTACT / CTA ─── */
-  .cta {
-    background:
-      linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.85)),
-      url('https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/81687392-4c7f-4b76-9eda-5048761c9653/atomic-funk-project-best-nyc-wedding-event-dance-party-band-background-inquire-now.jpg') center/cover no-repeat;
-    text-align: center;
-    padding: 8rem 2rem;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: #050505;
-    padding: 4rem 2rem 2rem;
-    border-top: 1px solid rgba(201,168,76,0.1);
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 3rem;
-    max-width: 1100px;
-    margin: 0 auto 3rem;
-  }
-
-  .footer-brand p { font-size: 0.85rem; margin-top: 1rem; max-width: 280px; }
-
-  .footer-col h4 {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-
-  .footer-col a {
-    display: block;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.83rem;
-    padding: 0.25rem 0;
-    transition: color 0.2s;
-  }
-  .footer-col a:hover { color: var(--text); }
-
-  .footer-bottom {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-  }
-
-  .social-links { display: flex; gap: 1.2rem; }
-  .social-links a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; transition: color 0.2s; }
-  .social-links a:hover { color: var(--gold); }
-
-  /* ─── DIVIDER ─── */
-  .gold-divider {
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    margin: 1.5rem auto;
-  }
-
-  /* ─── MOBILE ─── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .photo-strip { grid-template-columns: repeat(2, 1fr); }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-    .awards-row { gap: 1.5rem; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Your Band Name</a>
+  <a href="#" class="nav-logo">The Soul Jam</a>
   <ul class="nav-links">
     <li>
       <a href="#">The Band ▾</a>
@@ -529,6 +57,133 @@
   </ul>
 </nav>
 
+<!-- VIDEO CAROUSEL -->
+<section class="video-carousel" id="videos">
+  <div class="video-carousel-header">
+    <div>
+      <span class="section-label">Watch Us Live</span>
+      <h2>See the <em>Energy</em></h2>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn" aria-label="Previous">&#8592;</button>
+      <button class="carousel-btn" id="nextBtn" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+
+  <div class="carousel-track-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+
+      <!-- Slide 1 -->
+      <div class="video-slide" data-index="0">
+        <div class="video-slide-inner">
+          <iframe
+            src="https://www.youtube.com/embed/ZkMOf1R9Hbs?autoplay=1&mute=1&loop=1&playlist=ZkMOf1R9Hbs&controls=0&modestbranding=1&rel=0&enablejsapi=1"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="Live performance 1">
+          </iframe>
+          <div class="video-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="video-slide-meta">
+          <p class="video-slide-title">Wedding Reception Highlights</p>
+          <span class="video-slide-sub">The Plaza, New York</span>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="video-slide" data-index="1">
+        <div class="video-slide-inner">
+          <iframe
+            src="https://www.youtube.com/embed/kffacxfA7G4?autoplay=1&mute=1&loop=1&playlist=kffacxfA7G4&controls=0&modestbranding=1&rel=0&enablejsapi=1"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="Live performance 2">
+          </iframe>
+          <div class="video-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="video-slide-meta">
+          <p class="video-slide-title">Dance Party Set</p>
+          <span class="video-slide-sub">Cipriani, New York</span>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="video-slide" data-index="2">
+        <div class="video-slide-inner">
+          <iframe
+            src="https://www.youtube.com/embed/slyvku_9wEY?autoplay=1&mute=1&loop=1&playlist=slyvku_9wEY&controls=0&modestbranding=1&rel=0&enablejsapi=1"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="Live performance 3">
+          </iframe>
+          <div class="video-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="video-slide-meta">
+          <p class="video-slide-title">Corporate Gala Performance</p>
+          <span class="video-slide-sub">583 Park Avenue</span>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="video-slide" data-index="3">
+        <div class="video-slide-inner">
+          <iframe
+            src="https://www.youtube.com/embed/IcrbM1l_BoI?autoplay=1&mute=1&loop=1&playlist=IcrbM1l_BoI&controls=0&modestbranding=1&rel=0&enablejsapi=1"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="Live performance 4">
+          </iframe>
+          <div class="video-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="video-slide-meta">
+          <p class="video-slide-title">First Dance Moments</p>
+          <span class="video-slide-sub">Rockleigh Country Club, NJ</span>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="video-slide" data-index="4">
+        <div class="video-slide-inner">
+          <iframe
+            src="https://www.youtube.com/embed/09R8_2nJtjg?autoplay=1&mute=1&loop=1&playlist=09R8_2nJtjg&controls=0&modestbranding=1&rel=0&enablejsapi=1"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="Live performance 5">
+          </iframe>
+          <div class="video-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="video-slide-meta">
+          <p class="video-slide-title">Summer Outdoor Concert</p>
+          <span class="video-slide-sub">Private Estate, The Hamptons</span>
+        </div>
+      </div>
+
+    </div><!-- /carousel-track -->
+  </div>
+
+  <div class="carousel-dots" id="carouselDots"></div>
+</section>
+
 <!-- HERO -->
 <section class="hero">
   <span class="hero-eyebrow">NYC's Premier Wedding & Event Band</span>
@@ -559,6 +214,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- AWARDS -->
 <section class="awards">
@@ -672,7 +328,7 @@
   </div>
 </section>
 
-<!-- PHOTO STRIP / INSTAGRAM -->
+<!-- PHOTO STRIP -->
 <div class="photo-strip">
   <div class="photo-strip-item">
     <img src="https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/1778875294757-H8QX842NRIYIS2GV8RJM/image-asset.jpeg" alt="Live performance photo" loading="lazy">
@@ -718,8 +374,8 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="#" class="nav-logo" style="font-size:1.2rem;">Your Band Name</a>
-      <p>The best wedding &amp; event band in NYC. Serving NY, NJ, CT &amp; beyond. We throw unforgettable live music experiences.</p>
+      <a href="#" class="nav-logo" style="font-size:1.2rem;">The Soul Jam</a>
+      <p>The best wedding &amp; event band in Hudson Valley. Serving NY, NJ, CT &amp; beyond. We throw unforgettable live music experiences.</p>
       <div class="social-links" style="margin-top:1.2rem;">
         <a href="#">Instagram</a>
         <a href="#">Facebook</a>
@@ -752,10 +408,82 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Your Band Name. All rights reserved.</span>
+    <span>© 2026 The Soul Jam. All rights reserved.</span>
     <span>Serving NYC, NJ, CT &amp; beyond</span>
   </div>
 </footer>
+
+<script>
+(function () {
+  const track      = document.getElementById('carouselTrack');
+  const slides     = track.querySelectorAll('.video-slide');
+  const dotsEl     = document.getElementById('carouselDots');
+  const prevBtn    = document.getElementById('prevBtn');
+  const nextBtn    = document.getElementById('nextBtn');
+
+  const TOTAL      = slides.length;
+  const GAP        = 0;
+  let current      = 0;
+  let autoTimer;
+
+  /* ── Build dots ── */
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' is-active' : '');
+    d.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    d.addEventListener('click', () => { goTo(i); resetAuto(); });
+    dotsEl.appendChild(d);
+  }
+  const dots = dotsEl.querySelectorAll('.carousel-dot');
+
+  function slideWidth() {
+    /* One slide = full wrapper width */
+    return track.parentElement.clientWidth;
+  }
+
+  function goTo(index) {
+    current = (index + TOTAL) % TOTAL;
+    const offset = current * slideWidth();
+    track.style.transform = `translateX(-${offset}px)`;
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(next, 5000);
+  }
+
+  prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
+  nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+
+  /* ── Click overlay → unmute + enable controls ── */
+  slides.forEach(slide => {
+    const overlay = slide.querySelector('.video-overlay');
+    const iframe  = slide.querySelector('iframe');
+    overlay.addEventListener('click', () => {
+      iframe.src = iframe.src
+        .replace('mute=1', 'mute=0')
+        .replace('controls=0', 'controls=1');
+      overlay.classList.add('is-playing');
+      slide.classList.add('is-active');
+    });
+  });
+
+  /* ── Init ── */
+  goTo(0);
+  resetAuto();
+
+  /* Recalculate on resize */
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => goTo(current), 100);
+  });
+})();
+</script>
 
 </body>
 </html>

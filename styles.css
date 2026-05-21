@@ -199,7 +199,7 @@ p { color: rgba(240,236,228,0.75); margin-bottom: 1rem; }
   aspect-ratio: 4/5;
   background:
     linear-gradient(135deg, rgba(201,168,76,0.1), transparent),
-    url('https://images.squarespace-cdn.com/content/v1/646809c9679e22092ad0a1b4/e803d4ef-41a9-4373-9559-50e8dd3409ca/atomic-funk-project-best-nyc-wedding-event-dance-party-band-background-live-shows.jpg') center/cover no-repeat;
+    url('public/images/Jake3.jpeg') center/cover no-repeat;
   position: relative;
 }
 .about-img::after {
@@ -280,16 +280,17 @@ p { color: rgba(240,236,228,0.75); margin-bottom: 1rem; }
   background: var(--dark-card);
 }
 
-.video-slide-inner iframe {
+.video-slide-inner video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border: 0;
   pointer-events: none;
 }
 
-.video-slide.is-active .video-slide-inner iframe {
+.video-slide.is-active .video-slide-inner video {
   pointer-events: auto;
 }
 
@@ -307,19 +308,7 @@ p { color: rgba(240,236,228,0.75); margin-bottom: 1rem; }
   pointer-events: none;
 }
 
-.play-btn {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.9);
-  background: rgba(10,10,10,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, transform 0.2s;
-}
-.play-btn svg { fill: white; width: 24px; height: 24px; margin-left: 4px; }
-.video-slide:hover .play-btn { background: var(--gold); transform: scale(1.08); }
+
 
 .video-slide-meta {
   padding: 1rem 2rem 0;
